@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1><%= pokemon.name %></h1>
+	<h3><%= pokemon.tipo %></h3>	
+	<h3><%= pokemon.level %></h3>
+	<img src="<%= pokemon.imgURL %>">
+	
+<h3>Agregar Ataques:</h3>
+	<form method="post" action="/<%= nombre %>/pokemon/<%= id %>/ataque" id="form1">
+		<select name="nombre">
+			<%ataquestotales.forEach(function(ataquetotal){%>
+				<option value="<%= ataquetotal.id %>"><%= ataquetotal.name %></option>
+			<% }) %>
+		</select>
+		<input type="submit" name="agregarAtaque" for="form1">
+	</form>
+		<%pokemon.ataques.forEach(function(ataques){%>
+			<h4><%= ataques.description %></h4><% }) %>
+	<br>
+	<h3>Eliminar Ataques:</h3>
+		<form method="post" action="/<%= nombre %>/pokemon/<%= id %>/eliminarataque" id="form2">
+			<select name="nombre">
+			<%pokemon.ataques.forEach(function(ataques){%>
+			<option value="<%= ataques.id %>"><%= ataques.name %></option><% }) %>
+				
+
+		</select>
+		<input type="submit" name="eliminarAtaque" for="form2">	
+	</form>
+
+
+
+
+	<br>
+
+	<form method="post" action="/<%= nombre %>/pokemon/<%= id %>/comentario">
+		<textarea rows="10" cols="30" name="body" placeholder="Escribi tus comentarios..."></textarea>
+		<input type="submit" name="boton">
+	</form>
+	<% pokemon.comentarios.forEach(function(comentarios){ %>
+                 <h4><%= comentarios.body %></h4>
+                 <h4><%= comentarios.myDate %></h4><% }) %>
+
+	<h3><a href="/<%= nombre %>/pokemon/<%= id %>/eliminar">Eliminar tu Pokemon</a></h3>
+	<h3><a href="/<%= nombre %>/pokemon/<%= id %>/editar">Edita tu Pokemon</a></h3>
+
+</body>
+</html>

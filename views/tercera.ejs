@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2><%= nombre %>, elegí un Pokemon: </h2>
+	<ul>
+	<% for(var i=0; i<pokemon.length; i++) {%>
+	   <li><a href="/<%= nombre %>/pokemon/<%= pokemon[i].id %>"><%= pokemon[i].name %></a></li>
+	<% } %>
+		<li><a href="/<%= nombre %>/pokemon/new">Agrega un nuevo Pokemon</a></li>
+	</ul>
+</body>
+</html>
